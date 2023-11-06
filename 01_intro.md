@@ -21,7 +21,9 @@ A **database** is a structured collection of data that is organized and stored i
 
 ## 1. Relational Database:
 
-A **relational database** organizes data into tables with rows and columns. Tables are related based on common attributes, creating a structured and easily understandable format. Let's consider an example:
+A **relational database** organizes data into tables with rows and columns. Tables are related based on common attributes, creating a structured and easily understandable format. 
+i.e: MySQL, MariaDB, Postgres.
+Let's consider an example:
 
 **Table: Recipes**
 | RecipeID | RecipeName     | Ingredients                  | Category    |
@@ -32,6 +34,8 @@ A **relational database** organizes data into tables with rows and columns. Tabl
 ## 2. NoSQL Database:
 
 A **NoSQL database** is more flexible, allowing for the storage of various data types. Consider a document-oriented NoSQL database:
+i.e: mongodb
+
 
 **Example Document: Customer**
 ```json
@@ -169,3 +173,5 @@ Understanding keys and the cardinality of relationships is fundamental for desig
 3. **Scalability Issues:** Just as a kitchen might struggle to handle a sudden increase in the number of guests, databases may face challenges in scaling up to handle a growing volume of data.
 
 Understanding these concepts is like becoming a master chef in the world of information management. Each type of database has its unique flavor, and choosing the right one depends on the specific needs of your "culinary" project.
+
+"Thanks for tuning in! Until next time, happy listening and stay curious!"
