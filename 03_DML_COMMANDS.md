@@ -1,10 +1,10 @@
 ## 03_DML_COMMANDS
-# DML COMMANDS
+# `DML COMMANDS`
 Let's break down DML(Data Manipulation Language) commands, its syntax, and illustrate the before and after effects with tables.
 
-## **Summary of CRUD:**
+## **Summary of `CRUD`:**
 
-### **INSERT Query:**
+### **`INSERT` Query:**
 
 #### **INSERT query:**
 Adds new records to a table.
@@ -13,48 +13,48 @@ Adds new records to a table.
 INSERT INTO Students (StudentID, Name, Age) VALUES (1, 'Alice', 20);
 ```
 
-Before:
+`Before`:
 | StudentID | Name  | Age |
 |-----------|-------|-----|
 |           |       |     |
 
-After:
+`After`:
 | StudentID | Name  | Age |
 |-----------|-------|-----|
 | 1         | Alice | 20  |
 
-#### **INSERT query variation:**
+#### **`INSERT` query variation:**
 Variations of the INSERT query for different scenarios.
 
 ```sql
 INSERT INTO Students (Name, Age) VALUES ('Bob', 22);
 ```
 
-Before:
+`Before`:
 | StudentID | Name  | Age |
 |-----------|-------|-----|
 | 1         | Alice | 20  |
 
-After:
+`After`:
 | StudentID | Name  | Age |
 |-----------|-------|-----|
 | 1         | Alice | 20  |
 |           | Bob   | 22  |
 
-#### **INSERT multiple values:**
+#### **`INSERT multiple values`:**
 Inserts multiple records in a single query.
 
 ```sql
 INSERT INTO Students (Name, Age) VALUES ('Charlie', 21), ('David', 23);
 ```
 
-Before:
+`Before`:
 | StudentID | Name  | Age |
 |-----------|-------|-----|
 | 1         | Alice | 20  |
 | 2         | Bob   | 22  |
 
-After:
+`After`:
 | StudentID | Name    | Age |
 |-----------|---------|-----|
 | 1         | Alice   | 20  |
@@ -62,18 +62,18 @@ After:
 |           | Charlie | 21  |
 |           | David   | 23  |
 
-### **SELECT Query:**
+### **`SELECT` Query:**
 
 #### **Import data into MySQL Workbench:**
 Bringing external data into the database.
 
-Before:
+`Before`:
 | StudentID | Name  | Age |
 |-----------|-------|-----|
 | 1         | Alice | 20  |
 | 2         | Bob   | 22  |
 
-After (with imported data):
+`After` (with imported data):
 | StudentID | Name  | Age |
 |-----------|-------|-----|
 | 1         | Alice | 20  |
@@ -81,14 +81,14 @@ After (with imported data):
 | 3         | Carol | 25  |
 | 4         | Dave  | 23  |
 
-#### **SELECT all columns:**
+#### **`SELECT` all columns:**
 Retrieves all columns from a table.
 
 ```sql
 SELECT * FROM Students;
 ```
 
-Result:
+`Result`:
 | StudentID | Name  | Age |
 |-----------|-------|-----|
 | 1         | Alice | 20  |
@@ -96,14 +96,14 @@ Result:
 | 3         | Carol | 25  |
 | 4         | Dave  | 23  |
 
-#### **Filter columns:**
+#### **`Filter` columns:**
 Selects specific columns.
 
 ```sql
 SELECT Name, Age FROM Students;
 ```
 
-Result:
+`Result`:
 | Name  | Age |
 |-------|-----|
 | Alice | 20  |
@@ -111,7 +111,7 @@ Result:
 | Carol | 25  |
 | Dave  | 23  |
 
-#### **Alias | Renaming columns:**
+#### **`Alias` | `Renaming columns:`**
 Renames columns using aliases.
 
 ```sql
@@ -127,7 +127,7 @@ Result:
 | Carol       | 25         |
 | Dave        | 23         |
 
-#### **Create expression using columns:**
+#### **`Create expression using columns:`**
 Performs calculations within the SELECT statement.
 
 ```sql
@@ -142,7 +142,7 @@ SELECT Name, Age, Age + 5 AS FutureAge FROM Students;
 | Carol | 25  | 30        |
 | Dave  | 23  | 28        |
 
-#### **Constant value:**
+#### **`Constant value:`**
 Includes constant values in the result.
 
 ```sql
@@ -157,7 +157,7 @@ Result:
 | Carol | Adult    |
 | Dave  | Adult    |
 
-#### **DISTINCT (unique) values from a column:**
+#### **`DISTINCT (unique) values from a column:`**
 Retrieves unique values from a column.
 
 ```sql
@@ -172,7 +172,7 @@ Result:
 | 25  |
 | 23  |
 
-#### **DISTINCT combinations:**
+#### **`DISTINCT combinations:`**
 Retrieves unique combinations of columns.
 
 ```sql
@@ -187,7 +187,7 @@ Result:
 | Carol | 25  |
 | Dave  | 23  |
 
-#### **Filter rows WHERE clause:**
+#### **Filter rows `WHERE` clause:**
 Applies conditions to filter rows.
 
 ```sql
@@ -203,10 +203,10 @@ Result:
 
  |
 
-#### **Operator Example 1:**
+#### **`Operator` Example 1:**
 Various examples utilizing operators.
 
-#### **Example 2 with BETWEEN operator:**
+#### **Example 2 with `BETWEEN` operator:**
 ```sql
 SELECT * FROM Students WHERE Age BETWEEN 20 AND 25;
 ```
@@ -250,12 +250,6 @@ Result:
 |-----------|-------|-----|
 | 3         | Carol | 25  |
 | 4         | Dave  | 23  |
-
-#### **Doubt clearance:**
-Clarifications on doubts.
-
-#### **Query Execution Order:**
-Explains the sequence of query execution.
 
 ### **UPDATE Query:**
 
@@ -305,9 +299,9 @@ After:
 | 3         | Carol  | 25  |
 | 4         | Dave   | 23  |
 
-### **DELETE Query:**
+### **`DELETE` Query:**
 
-#### **DELETE Query to delete row(s):**
+#### **`DELETE` Query to delete row(s):**
 Removes specific records from a table.
 
 ```sql
@@ -354,12 +348,10 @@ After:
 
 ### **Functions in MySQL/SQL:**
 
-#### **Info about SQL Functions:**
-Overview of SQL functions.
 
 #### **Different aggregate functions:**
 
-- **MAX() & MIN():**
+- **`MAX() & MIN():`**
 Retrieves the maximum and minimum values.
 
 ```sql
@@ -371,7 +363,7 @@ Result:
 |--------|--------|
 | 25     | 22     |
 
-- **AVG():**
+- **`AVG():`**
 Computes the average value.
 
 ```sql
@@ -383,7 +375,7 @@ Result:
 |------------|
 | 23.75      |
 
-- **SUM():**
+- **`SUM():`**
 Adds up values.
 
 ```sql
@@ -395,7 +387,7 @@ Result:
 |----------|
 | 95       |
 
-- **COUNT():**
+- **`COUNT():`**
 Counts the number of rows.
 
 ```sql
@@ -407,7 +399,7 @@ Result:
 |--------------|
 | 4            |
 
-- **STD() & VARIANCE():**
+- **`STD() & VARIANCE():`**
 Calculate standard deviation and variance.
 
 ```sql
@@ -421,7 +413,7 @@ Result:
 
 #### **Different scalar functions:**
 
-- **ABS():**
+- **`ABS():`**
 Returns the absolute value.
 
 ```sql
@@ -433,7 +425,7 @@ Result:
 |---------------|
 | 5             |
 
-- **ROUND():**
+- **`ROUND():`**
 Rounds a numeric value.
 
 ```sql
@@ -445,7 +437,7 @@ Result:
 |--------------|
 | 6            |
 
-- **CEIL() & FLOOR():**
+- **`CEIL() & FLOOR():`**
 Rounds up and down to the nearest integer.
 
 ```sql
