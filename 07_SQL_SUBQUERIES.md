@@ -208,3 +208,145 @@ WHERE price = (SELECT MAX(price) FROM products p2 WHERE p1.category = p2.categor
 | Bob      | 55000  |
 | Alice    | 60000  |
 
+### Usage with SELECT:
+
+**Details:**
+
+Subqueries can be used in the SELECT clause to retrieve additional information.
+
+**Example #1:**
+
+```sql
+SELECT emp_name, salary, (SELECT AVG(salary) FROM employees) AS avg_salary
+FROM employees;
+```
+
+**Example #2:**
+
+```sql
+SELECT product_name, price, (SELECT category_name FROM categories WHERE categories.category_id = products.category) AS category_name
+FROM products;
+```
+
+**Output Before:**
+
+| emp_name | salary |
+|----------|--------|
+| John     | 45000  |
+| Jane     | 50000  |
+| Bob      | 55000  |
+| Alice    | 60000  |
+
+**Output After:**
+
+| emp_name | salary | avg_salary |
+|----------|--------|------------|
+| John     | 45000  | 52500      |
+| Jane     | 50000  | 52500      |
+| Bob      | 55000  | 52500      |
+| Alice    | 60000  | 52500      |
+
+### Usage with FROM:
+
+**Example #1:
+
+**
+
+```sql
+SELECT emp_name, MAX(salary) AS max_salary
+FROM employees, (SELECT department FROM employees) AS subquery
+WHERE employees.department = subquery.department
+GROUP BY emp_name;
+```
+
+**Output Before:**
+
+| emp_name | salary |
+|----------|--------|
+| John     | 45000  |
+| Jane     | 50000  |
+| Bob      | 55000  |
+| Alice    | 60000  |
+
+**Output After:**
+
+| emp_name | max_salary |
+|----------|------------|
+| John     | 60000      |
+| Jane     | 60000      |
+| Bob      | 60000      |
+| Alice    | 60000      |
+
+### Usage with HAVING:
+
+**Example #1:**
+
+```sql
+SELECT department, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department
+HAVING AVG(salary) > (SELECT AVG(salary) FROM employees);
+```
+
+**Output Before:**
+
+| department | avg_salary |
+|------------|------------|
+| HR         | 45000      |
+| IT         | 55000      |
+| Sales      | 60000      |
+
+**Output After:**
+
+| department | avg_salary |
+|------------|------------|
+| IT         | 55000      |
+| Sales      | 60000      |
+
+### Subquery in INSERT:
+
+**Example #1:**
+
+```sql
+INSERT INTO high_salary_employees
+SELECT emp_id, emp_name, salary
+FROM employees
+WHERE salary > (SELECT AVG(salary) FROM employees);
+```
+
+### Subquery in UPDATE:
+
+**Example #1:**
+
+```sql
+UPDATE employees
+SET bonus = (SELECT AVG(salary) FROM employees WHERE department = 'IT') * 0.1
+WHERE department = 'IT';
+```
+
+### Subquery in DELETE:
+
+**Example #1:**
+
+```sql
+DELETE FROM employees
+WHERE salary < (SELECT AVG(salary) FROM employees);
+```
+
+### Subquery in UPDATE (Resolved):
+
+**Example #1:**
+
+```sql
+UPDATE employees
+SET bonus = (SELECT AVG(salary) FROM employees e2 WHERE e1.department = e2.department) * 0.1
+FROM employees e1;
+```
+
+## Conclusion:
+
+Subqueries are a versatile tool in SQL, offering a way to perform complex operations and retrieve specific information dynamically. Whether you're working with scalar, row, table, or correlated subqueries, understanding their types and applications across different SQL statements is crucial.
+
+As you navigate the world of databases, remember to leverage subqueries wisely, optimizing your queries for efficiency and precision. With this comprehensive guide, you're equipped to master the art of subqueries and enhance your SQL skills.
+
+## Happy querying!
